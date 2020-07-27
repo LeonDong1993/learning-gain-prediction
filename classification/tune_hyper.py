@@ -225,7 +225,7 @@ def top_configuration(candidates):
 			return configs
 	return configs
 
-def f1_harmony(a,b,eps = 1e-5):
+def f1_harmony(a,b,eps = 1e-10):
 	if (a + b) < eps:
 		score = 0.0
 	else:
@@ -249,21 +249,13 @@ def get_score_new(cv_res):
 def get_score(cv_res):
 	tmp = []
 	for report in cv_res:
-		# a = report['0']['f1-score']
-		# b = report['1']['f1-score']
-		
-		# info = report['seq_perf']
-		# novice = info[0]
-		# expert = info[1]
-		# a = novice[2] * novice[3]
-		# b = expert[2] * expert[3]
-
-		# score = f1_harmony(a,b)
-
-		score = report['accuracy']
-
+		info = report['seq_perf']
+		novice = info[0]
+		expert = info[1]
+		a = novice[2] * novice[3]
+		b = expert[2] * expert[3]
+		score = f1_harmony(a,b)
 		tmp.append( score )
-
 	score = np.mean(tmp)
 	# favor the stable cv performance
 	# score -= 0.01*np.std(tmp)
@@ -273,7 +265,7 @@ STD_CV_FOLD = 4
 FREE_CV_PARA = (8,0.8)
 CLASS_WEIGHT = 'balanced'
 
-INT =  []
+INT =  [] # put interested hyperapameter here
 
 def main(args):
 	feature_data_file = args[0]
