@@ -10,7 +10,19 @@ featurized.py - featurized the data given the hyper parameters, the data is a di
 find_segment.py - given the best hyper parameter configuration, find the motion segments from original data that the classifier believes most likely HL/LL gain users. 
 tune_hyper.py - the main script for finding best hyper parameters using cross validation. 
 
-All featurized data should be put into `classification/fdata` folder, since the size of data files are very large, I will provide external link for downloading it. 
+All featurized data should be put into `classification/fdata` folder, since the size of data files are very large, it can be download at https://drive.google.com/file/d/1MkxTrAqCN_wBiqRToj1XobRKC5WGcFNF/view?usp=sharing. 
+The file contains only two files `cvx21.pkl` and `pca21.pkl`. 
+`cvx21.pkl` is the featurized data using CVX feature extraction method over all attributes, i.e, linear and angular velocities of  HMD and both hands. 
+`pca21.pkl` is the featurized data using PCA feature extraction method over all attributes, i.e, linear and angular velocities of  HMD and both hands. 
+You can create featurized data using PCA/CVX feature extraction method over a subset of attributes by using the `create_partial_data.py` script provided in `classification/fdata` directory. 
+The usage of the script is `python create_partial_data.py source_file output_file drop_attr_ids`. The drop_attr_ids is predefined as
+0-linear velocities of HMD
+1-angular velocities of HMD
+2-linear velocities of left hand
+3-angular velocities of left hand
+4-linear velocities of right hand 
+5-angular velocities of right hand 
+For example, `python create_partial_data.py cvx21.pkl cvx13.pkl 3,5` will create a featurized data using  CVX feature extraction method over linear and angular velocities of  HMD and only linear velocities of both hands.
 
 # How to run the experiment
 You will need `pyLeon` library to run this project. You can download this library from my homepage. 
