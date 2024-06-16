@@ -1,0 +1,10 @@
+# Blacklist everything
+*
+# Whitelist all directories
+!*/
+# Whitelist the file you're interested in.
+!*.py
+!*.sh
+!figs/*
+!.gitignore
+others
