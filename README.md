@@ -75,7 +75,7 @@ In case my school email being deactivated, you can email me using my personal em
 
 
 [data_url]:https://utdallas.box.com/s/0trds4nsf6p4wc9fwuze89oukmloyjav
-[res_fig]:https://github.com/LeonDong1993/learning-gain-prediction/blob/main/figs/vr-res.png
+[res_fig]:https://github.com/LeonDong1993/learning-gain-prediction/blob/master/figs/vr-res.png
 
 
 
